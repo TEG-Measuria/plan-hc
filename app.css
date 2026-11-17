@@ -1,0 +1,51 @@
+/* Only what the canvas cannot express. Never restyle: change the canvas instead. */
+.pg{min-height:100vh;min-height:100dvh}
+.pg.land{min-height:100vh;min-height:100dvh}
+h1:focus{outline:none}
+a[role=button]{cursor:pointer}
+a[aria-disabled=true]{pointer-events:none}
+.sigcanvas{position:absolute;left:0;top:0;width:100%;height:100%;border-radius:10px;touch-action:none;cursor:crosshair}
+.pg.busy a,.pg.busy input,.pg.busy select{pointer-events:none}
+select.in{appearance:auto}
+#boot{font-family:system-ui,sans-serif;padding:40px;color:#55605D}
+
+/* Landscape tablet only (the canvas .land layout). These tighten spacing or constrain height; type sizes stay as the board has them. */
+@media (min-width:900px){
+  /* M1: five staff names, and the "After a change" message, fit 1180x720 with no page scroll */
+  .land .mstk{gap:12px !important}
+  .land .pnl2{row-gap:6px !important}
+  /* P2 "Full terms open": the terms scroll inside their panel; Accept and Back stay on screen */
+  .pg.land.terms-open{height:100vh;height:100dvh;min-height:0}
+  .land.terms-open .main.abc{min-height:0;overflow:hidden}
+  .land.terms-open .main.abc{grid-template-rows:auto minmax(0,1fr)}
+  .land.terms-open .gc{min-height:0;align-self:stretch}
+  .land.terms-open .gc>.box{display:flex;flex-direction:column;min-height:0;flex:1 1 auto;overflow:hidden}
+  .land.terms-open #fullterms{overflow-y:auto;min-height:0;flex:1 1 auto;overscroll-behavior:contain}
+}
+
+/* Sign-in screens before a practice code: no logo (Vik, 13 Nov 2026); the empty span keeps the header height */
+.top .nologo{display:block;height:32px}
+
+/* B3 tablets panel: one column even on a landscape tablet */
+.land .pnl2.tabs1{display:flex !important;flex-direction:column;align-items:stretch}
+
+/* Harrison Coley brand (17 Nov 2026): the HC pack used in the HC Eyecare Plan booklet (practice-folders-tidy/drafts/
+   Harrison Coley ECP 11Nov/theme): Deep Navy #001F3F, Goldenrod #F5BF03 (rules, marks and on navy only: too pale for
+   text on white), greys; Merriweather headings, Raleway text. Merriweather is wider and heavier than Cormorant, so
+   headings are a step smaller (as in the booklet). Kings, C&G and R&E keep the signed-off canvas look above. */
+html[data-p=hc]{--ink:#001F3F;--muted:#3D4752;--alt:#F7F9FB;--cream:#FFFFFF;--line:#D5DCE3;--brass:#F5BF03;--brassink:#6E5300}
+html[data-p=hc] body,html[data-p=hc] .in{font-family:'Raleway',system-ui,sans-serif;font-variant-numeric:lining-nums;font-feature-settings:'lnum' 1}
+html[data-p=hc] h1,html[data-p=hc] h2,html[data-p=hc] .choice .t,html[data-p=hc] .tr.th .nm,html[data-p=hc] .tr.th .tp{font-family:'Merriweather',Georgia,serif;font-weight:700;letter-spacing:-.005em}
+html[data-p=hc] h1{font-size:30px;line-height:1.2}
+html[data-p=hc] h1[style*="font-size: 44px"]{font-size:34px !important}
+html[data-p=hc] h2{font-size:20px;line-height:1.25}
+html[data-p=hc] h2[style*="font-size: 19px"]{font-size:16px !important}
+html[data-p=hc] .choice .t{font-size:18px}
+html[data-p=hc] .tr.th .nm{font-size:17px}
+html[data-p=hc] .tr.th .tp{font-size:26px}
+html[data-p=hc] *:focus-visible{outline-color:#6E5300}
+html[data-p=hc] label:focus-within{outline-color:#6E5300}
+html[data-p=hc] .bar{background:#E4E8EC}
+html[data-p=hc] .pad{background:#F7F9FB}
+html[data-p=hc] .tr:not(.th)>.gd{background:#FFF6D6}
+html[data-p=hc] .top img{width:200px}
